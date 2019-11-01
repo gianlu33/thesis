@@ -1,0 +1,104 @@
+{
+    "nodes": [
+        {
+            "type": "nosgx",
+            "name": "node1",
+            "ip_address": "127.0.0.1",
+            "reactive_port": 5000
+        },
+        {
+            "type": "sancus",
+            "name": "node2",
+            "ip_address": "127.0.0.1",
+            "vendor_id": 4660,
+            "vendor_key": "0b7bf3ae40880a8be430d0da34fb76f0",
+            "reactive_port": 6000
+        }
+    ],
+    "modules" : [
+        {
+            "type": "nosgx",
+            "name": "controller",
+            "node": "node1"
+        },
+        {
+            "type": "nosgx",
+            "name": "dashboard",
+            "node": "node1"
+        },
+        {
+            "type": "sancus",
+            "name": "sensor",
+            "files": ["sensor_noled.c"],
+            "node": "node2"
+        },
+        {
+            "type": "sancus",
+            "name": "actuator",
+            "files": ["actuator.c"],
+            "node": "node2"
+        },
+        {
+            "type": "sancus",
+            "name": "led_driver",
+            "node": "node2",
+            "deployed": true,
+            "files": [],
+            "binary": "",
+            "id": 1,
+            "symtab": "",
+            "key": "54bdd4bfb1f1a2dbd6b8a324a28cf36e"
+        }
+    ],
+    "connections": [
+      {
+          "from_module": "controller",
+          "from_output": "get_sensor_value",
+          "to_module": "dashboard",
+          "to_input": "sensor_data_requested",
+          "encryption": "aes"
+      },
+      {
+          "from_module": "controller",
+          "from_output": "get_sensor_value",
+          "to_module": "sensor",
+          "to_input": "read_value",
+          "encryption": "spongent"
+      },
+      {
+          "from_module": "sensor",
+          "from_output": "actuate_tap",
+          "to_module": "actuator",
+          "to_input": "actuate_tap",
+          "encryption": "spongent"
+      },
+      {
+          "from_module": "sensor",
+          "from_output": "value_read",
+          "to_module": "dashboard",
+          "to_input": "sensor_data_received",
+          "encryption": "spongent"
+      },
+      {
+          "from_module": "actuator",
+          "from_output": "tap_changed",
+          "to_module": "led_driver",
+          "to_input": 0,
+          "encryption": "spongent"
+      },
+      {
+          "from_module": "actuator",
+          "from_output": "tap_changed",
+          "to_module": "dashboard",
+          "to_input": "tap_state_received",
+          "encryption": "spongent"
+      }
+    ],
+    "periodic-events": [
+      {
+        "module" : "controller",
+        "entry" : "request_data",
+        "frequency" : 1000
+      }
+    ]
+}

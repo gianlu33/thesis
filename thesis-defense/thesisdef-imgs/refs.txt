@@ -1,0 +1,5 @@
+smart_home1: http://marcoscatizzi.it/2020/06/why-smart-home-security/
+smart_farm1: https://terraevita.edagricole.it/tecnica-e-tecnologia/smart-farm-cambiare-lagricoltura-innovando/
+smart_farm2: https://sgtechcentre.undp.org/content/sgtechcentre/en/home/blogs/5g--the-gamechanger-for-precision-agriculture.html
+enclave: http://tadviser.com/index.php/Product:Intel_SGX_(Software_Guard_Extensions)
+tee_1: https://medium.com/@sweis/state-of-sgx-development-3db860d40284
