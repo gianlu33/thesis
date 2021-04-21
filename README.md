@@ -21,11 +21,11 @@ Thesis work @ KU Leuven 2019-2020: [_Securing Smart Environments with Authentic 
 
 - [`rust-sgx-gen`](https://github.com/gianlu33/rust-sgx-gen)
   - A code generator for Rust applications to enable Authentic Execution for SGX. Used by `reactive-tools`
-- [`rust-sgx-apps`](https://github.com/gianlu33/rust-sgx-apps)
-  - Applications needed for the SGX Authentic Execution framework, e.g., the Event Manager.
+- [`reactive-event-manager`](https://github.com/gianlu33/reactive-event-manager)
+  - Event Manager for SGX and Native deployments
 
 - [`rust-sgx-libs`](https://github.com/gianlu33/rust-sgx-libs)
-  - Rust libraries used in `rust-sgx-gen` and `rust-sgx-apps`. Contains a library for network communications and a library for crypto operations.
+  - Rust libraries used in `rust-sgx-gen` and `reactive-event-manager`. Contains a library for network communications and a library for crypto operations.
   
 - [`sancus-support`](https://github.com/gianlu33/sancus-support)
   - Forked from `sancus-tee/sancus-support`
@@ -50,7 +50,7 @@ Thesis work @ KU Leuven 2019-2020: [_Securing Smart Environments with Authentic 
 ## Other libraries / projects used
 
 - [`spongent-rs`](https://github.com/gianlu33/spongent-rs)
-  - A Rust library that implements the SPONGENT crypto library. Forked from `stenverbois/spongent-rs`
+  - A Rust library that implements the SPONGENT crypto library. Forked from [this repository](https://github.com/stenverbois/spongent-rs)
   
-- [`rust-sgx-remote-attestation`](https://github.com/ndokmai/rust-sgx-remote-attestation)
-  - An implementation of Remote Attestation for SGX enclaves built with Fortanix EDP
+- [`rust-sgx-remote-attestation`](https://github.com/gianlu33/rust-sgx-remote-attestation)
+  - An implementation of Remote Attestation for SGX enclaves built with Fortanix EDP. Forked from [this repository](https://github.com/ndokmai/rust-sgx-remote-attestation)
